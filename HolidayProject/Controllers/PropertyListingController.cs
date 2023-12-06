@@ -146,7 +146,7 @@ public class PropertyListingController : Controller
 
     public IActionResult ListAvailable(DateTime start, DateTime end)
     {
-        return View("ListProperties", properties);
+        return View("ListProperties", properties.Where(p => !p.BookedDates.Any(d => d >= start && d <= end)).ToList());
     }
 
     public IActionResult ViewPropertyDetails(int id)
