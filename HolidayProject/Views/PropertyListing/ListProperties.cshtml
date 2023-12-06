@@ -1,0 +1,12 @@
+﻿@model IEnumerable<HolidayProject.Models.PropertyListingModel>
+
+@{
+    ViewBag.Title = "List of Properties";
+}
+
+@foreach (var property in Model)
+{
+    <div class="property">
+        <h4>@property.Name</h4>
+    </div>
+}
