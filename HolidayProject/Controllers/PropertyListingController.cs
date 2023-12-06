@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 
 namespace HolidayProject.Controllers;
+
 public class PropertyListingController : Controller
 {
     private static List<PropertyDetailsModel> properties = new()
