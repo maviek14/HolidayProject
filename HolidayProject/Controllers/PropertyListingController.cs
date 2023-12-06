@@ -140,18 +140,18 @@ public class PropertyListingController : Controller
 
     public IActionResult ListAll()
     {
-        return View(properties);
+        return View("ListProperties", properties);
     }
 
     public IActionResult ListAvailable(DateTime start, DateTime end)
     {
-        return View(properties);
+        return View("ListProperties", properties);
     }
 
     public IActionResult ViewPropertyDetails(int id)
     {
         PropertyListingModel model = properties.FirstOrDefault(x => x.Id == id);
 
-        return View(model);
+        return View("PropertyDetails", model);
     }
 }
