@@ -79,11 +79,11 @@ public class PropertyListingController : Controller
 
     public IActionResult ListAll()
     {
-        return View();
+        return View(properties);
     }
 
     public IActionResult ListAvailable(DateTime start, DateTime end)
     {
-        return View();
+        return View(properties);
     }
 }
