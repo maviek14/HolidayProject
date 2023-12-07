@@ -4,7 +4,7 @@ namespace Domain.Repositories;
 
 public class DummyPropertyRepository : IPropertyRepository
 {
-    private static List<Property> properties = new()
+    private List<Property> properties = new()
     {
         new()
         {
@@ -138,20 +138,18 @@ public class DummyPropertyRepository : IPropertyRepository
         }
     };
 
-    public IEnumerable<Property> Properties => properties;
-
     public void AddProperty(Property property)
     {
-        Properties.ToList().Add(property);
+        properties.Add(property);
     }
 
     public IEnumerable<Property> GetProperties()
     {
-        return Properties;
+        return properties;
     }
 
     public Property GetPropertyById(int id)
     {
-        return Properties.FirstOrDefault(p => p.Id == id);
+        return properties.FirstOrDefault(p => p.Id == id);
     }
 }

@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 var services=builder.Services;
 
 services.AddSingleton<IPropertyRepository, DummyPropertyRepository>();
+services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");

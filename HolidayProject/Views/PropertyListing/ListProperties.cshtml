@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Domain.Entities.Property>
+﻿@model IEnumerable<HolidayProject.Models.PropertyListingModel>
 
 @{
     ViewBag.Title = "List of Properties";
@@ -6,7 +6,13 @@
 
 @await Component.InvokeAsync("DateRange")
 <br />
-@foreach (var property in Model)
-{
-    <partial name="_PropertyListingPartial" model="@property"/>
-}
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            @foreach (var property in Model)
+            {
+                <partial name="_PropertyListingPartial" model="@property" />
+            }
+        </div>
+    </div>
+</div>
