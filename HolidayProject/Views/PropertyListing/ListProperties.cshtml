@@ -8,12 +8,5 @@
 <br />
 @foreach (var property in Model)
 {
-    <div class="property">
-        <h4>@property.Name</h4>
-        <a asp-controller="PropertyListing"
-           asp-action="ViewPropertyDetails"
-           asp-route-id="@property.Id">
-            View Details
-        </a>
-    </div>
+    <partial name="_PropertyListingPartial" model="@property"/>
 }

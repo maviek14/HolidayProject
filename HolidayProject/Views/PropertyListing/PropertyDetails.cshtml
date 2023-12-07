@@ -4,12 +4,12 @@
     ViewBag.Title = "Property Details";
 }
 
-<h3>@Model.Name Details</h3>
+<h3>@Model.Name</h3>
 
 <p>Blurb: @Model.Blurb</p>
 <p>Location: @Model.Location</p>
 <p>Number of Bedrooms: @Model.NumberOfBedrooms</p>
-<p>Cost per Night: @Model.CostPerNight</p>
+<p>Cost per Night: @Model.CostPerNight.ToString("c")</p>
 <p>Description: @Model.Description</p>
 <p>Amenities:</p>
 <ul>
@@ -29,3 +29,12 @@
         </li>
     }
 </ul>
+<br />
+
+<script>
+    $(function () {
+        $("#datepicker").datepicker();
+    });
+</script>
+
+<p>Date: <input type="text" id="datepicker"></p>
