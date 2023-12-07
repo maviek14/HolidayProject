@@ -1,8 +1,13 @@
+using Domain.Repositories;
 using HolidayProject.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var services=builder.Services;
+
+services.AddSingleton<IPropertyRepository, DummyPropertyRepository>();
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
