@@ -1,0 +1,41 @@
+﻿@model HolidayProject.Models.PropertyDetailsModel
+
+@{
+    ViewBag.Ttile = "Add Property";
+}
+
+<h3>Add new property</h3>
+
+<form asp-controller="PropertyManagement" asp-action="AddProperty" method="post">
+
+    <p>
+        <label asp-for="@Model.Name"></label>
+        <input asp-for="@Model.Name">
+    </p>
+    <p>
+        <label asp-for="@Model.Blurb"></label>
+        <input asp-for="@Model.Blurb">
+    </p>
+    <p>
+        <label asp-for="@Model.Location"></label>
+        <input asp-for="@Model.Location">
+    </p>
+    <p>
+        <label asp-for="@Model.NumberOfBedrooms"></label>
+        <input asp-for="@Model.NumberOfBedrooms">
+    </p>
+    <p>
+        <label asp-for="@Model.CostPerNight"></label>
+        <input asp-for="@Model.CostPerNight">
+    </p>
+    <p>
+        <label asp-for="@Model.Description"></label>
+        <input asp-for="@Model.Description">
+    </p>
+    <p>
+        <label asp-for="@Model.Amenities"></label>
+        <input asp-for="@Model.Amenities">
+    </p>
+    <br />
+    <input type="submit" value="Add Property!">
+</form>
