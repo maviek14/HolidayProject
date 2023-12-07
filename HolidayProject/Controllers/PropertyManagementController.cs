@@ -1,10 +1,19 @@
-﻿using HolidayProject.Models;
+﻿using Domain.Entities;
+using Domain.Repositories;
+using HolidayProject.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HolidayProject.Controllers;
 
 public class PropertyManagementController : Controller
 {
+    private readonly IPropertyRepository repository;
+
+    public PropertyManagementController(IPropertyRepository repository)
+    {
+        this.repository = repository;
+    }
+
     [HttpGet]
     public IActionResult AddProperty()
     {
@@ -12,11 +21,14 @@ public class PropertyManagementController : Controller
     }
 
     [HttpPost]
-    public IActionResult AddProperty(PropertyDetailsModel model)
+    public IActionResult AddProperty(Property model)
     {
-       if (ModelState.IsValid)
+        if (ModelState.IsValid)
+        {
+            repository.AddProperty(model);
             return View("PropertyAdded", model);
-       else
+        }
+        else
             return View(model);
     }
 }

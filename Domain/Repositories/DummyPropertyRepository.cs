@@ -138,14 +138,20 @@ public class DummyPropertyRepository : IPropertyRepository
         }
     };
 
+    public IEnumerable<Property> Properties => properties;
 
     public void AddProperty(Property property)
     {
-        
+        Properties.ToList().Add(property);
     }
 
     public IEnumerable<Property> GetProperties()
     {
-        return properties;
+        return Properties;
+    }
+
+    public Property GetPropertyById(int id)
+    {
+        return Properties.FirstOrDefault(p => p.Id == id);
     }
 }
