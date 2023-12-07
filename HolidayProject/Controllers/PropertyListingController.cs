@@ -24,7 +24,8 @@ public class PropertyListingController : Controller
 
     public IActionResult ListAvailable(DateTime start, DateTime end)
     {
-        return View("ListProperties", mapper.Map<IEnumerable<PropertyDetailsModel>>(repository.GetProperties().Where(p => !p.BookedDates.Any(d => d >= start && d <= end))));
+        var availableProperties = repository.GetProperties().Where(p => !p.BookedNights.Any(d => d.Night >= start && d.Night <= end));
+        return View("ListProperties", mapper.Map<IEnumerable<PropertyDetailsModel>>(availableProperties));
     }
 
     public IActionResult ViewPropertyDetails(int id)
