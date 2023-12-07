@@ -44,4 +44,6 @@ public class ApplicationDbContext : IdentityDbContext
 
         builder.Entity<Property>().HasData(properties);
     }
+
+    public DbSet<Property> Properties { get; set; }
 }

@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 var services=builder.Services;
 
-services.AddSingleton<IPropertyRepository, DummyPropertyRepository>();
+services.AddScoped<IPropertyRepository, EfPropertyRepository>();
 services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 // Add services to the container.

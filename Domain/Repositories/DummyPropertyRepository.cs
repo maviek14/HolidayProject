@@ -69,6 +69,11 @@ public class DummyPropertyRepository : IPropertyRepository
         return properties;
     }
 
+    public IEnumerable<Property> GetPropertiesBetweenDates(DateTime start, DateTime end)
+    {
+        throw new NotImplementedException();
+    }
+
     public Property GetPropertyById(int id)
     {
         return properties.FirstOrDefault(p => p.PropertyId == id);
